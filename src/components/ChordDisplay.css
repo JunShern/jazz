@@ -1,0 +1,179 @@
+/* Chord display styles */
+
+.chord-display {
+  background: #1a1a2e;
+  border-radius: 12px;
+  padding: 16px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* Header */
+.chord-header {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.chord-symbol {
+  font-size: 36px;
+  font-weight: 700;
+  color: #4ecdc4;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.chord-name {
+  display: block;
+  font-size: 14px;
+  color: #888;
+  margin-top: 4px;
+}
+
+/* Voicing info */
+.voicing-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #2a2a4a;
+}
+
+.voicing-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #e0e0e0;
+}
+
+.voicing-style {
+  font-size: 12px;
+  color: #666;
+  background: #16162a;
+  padding: 2px 8px;
+  border-radius: 12px;
+}
+
+/* Notes section */
+.notes-section {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.notes-section.hidden {
+  justify-content: center;
+}
+
+.reveal-btn {
+  background: #4ecdc4;
+  color: #1a1a2e;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.reveal-btn:hover {
+  background: #3ab4ad;
+  transform: translateY(-1px);
+}
+
+.reveal-btn:active {
+  transform: translateY(0);
+}
+
+/* Hand notes */
+.hand-notes {
+  flex: 1;
+  min-width: 0;
+}
+
+.hand-notes h3 {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0 0 8px 0;
+}
+
+.hand-notes.lh h3 {
+  color: #4ecdc4;
+}
+
+.hand-notes.rh h3 {
+  color: #ff6b6b;
+}
+
+.notes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.note-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #16162a;
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+
+.note-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #e0e0e0;
+}
+
+.note-degree {
+  font-size: 12px;
+  color: #888;
+}
+
+.hand-notes.lh .note-item {
+  border-left: 3px solid #4ecdc4;
+}
+
+.hand-notes.rh .note-item {
+  border-left: 3px solid #ff6b6b;
+}
+
+/* Chord tones */
+.chord-tones {
+  padding-top: 12px;
+  border-top: 1px solid #2a2a4a;
+  text-align: center;
+}
+
+.chord-tones h4 {
+  font-size: 12px;
+  font-weight: 600;
+  color: #666;
+  margin: 0 0 8px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.intervals {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.interval {
+  background: #16162a;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 13px;
+  color: #aaa;
+}
+
+.no-voicing {
+  text-align: center;
+  color: #666;
+  font-style: italic;
+}

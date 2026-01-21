@@ -1,0 +1,440 @@
+/* Chord Reference page styles */
+
+.chord-reference-page {
+  min-height: 100vh;
+  background: #0f0f1a;
+  color: #e0e0e0;
+  padding-bottom: 40px;
+}
+
+/* Header */
+.reference-header {
+  padding: 16px;
+  background: #1a1a2e;
+  border-bottom: 1px solid #2a2a4a;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.reference-header h1 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #4ecdc4;
+}
+
+/* Key selector */
+.key-selector {
+  padding: 12px 16px;
+  background: #16162a;
+  border-bottom: 1px solid #2a2a4a;
+}
+
+.key-selector label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: #888;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.key-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.key-buttons button {
+  background: #1a1a2e;
+  border: 1px solid #2a2a4a;
+  color: #aaa;
+  padding: 8px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s;
+  min-width: 36px;
+}
+
+.key-buttons button:hover {
+  background: #2a2a4a;
+  color: #e0e0e0;
+}
+
+.key-buttons button.active {
+  background: #4ecdc4;
+  color: #1a1a2e;
+  border-color: #4ecdc4;
+}
+
+/* Category tabs */
+.category-tabs {
+  display: flex;
+  overflow-x: auto;
+  padding: 0 16px;
+  background: #1a1a2e;
+  border-bottom: 1px solid #2a2a4a;
+  -webkit-overflow-scrolling: touch;
+}
+
+.category-tabs button {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: #888;
+  padding: 12px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s;
+}
+
+.category-tabs button:hover {
+  color: #e0e0e0;
+}
+
+.category-tabs button.active {
+  color: #4ecdc4;
+  border-bottom-color: #4ecdc4;
+}
+
+/* Chord type selector */
+.chord-type-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 12px 16px;
+  background: #16162a;
+  border-bottom: 1px solid #2a2a4a;
+}
+
+.chord-type-selector button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  background: #1a1a2e;
+  border: 1px solid #2a2a4a;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.15s;
+  min-width: 70px;
+}
+
+.chord-type-selector button:hover {
+  background: #2a2a4a;
+}
+
+.chord-type-selector button.active {
+  background: #4ecdc4;
+  border-color: #4ecdc4;
+}
+
+.type-symbol {
+  font-size: 16px;
+  font-weight: 600;
+  color: #e0e0e0;
+}
+
+.chord-type-selector button.active .type-symbol {
+  color: #1a1a2e;
+}
+
+.type-name {
+  font-size: 10px;
+  color: #888;
+}
+
+.chord-type-selector button.active .type-name {
+  color: #1a1a2e;
+  opacity: 0.7;
+}
+
+/* Main content */
+.reference-main {
+  padding: 16px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Chord info section */
+.chord-info {
+  background: #1a1a2e;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.chord-info h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #4ecdc4;
+  margin: 0 0 4px 0;
+}
+
+.chord-full-name {
+  font-size: 16px;
+  color: #aaa;
+  margin: 0 0 8px 0;
+}
+
+.chord-description {
+  font-size: 14px;
+  color: #666;
+  margin: 0 0 20px 0;
+  line-height: 1.4;
+}
+
+/* Chord tones */
+.chord-tones-section h3,
+.tensions-section h3 {
+  font-size: 12px;
+  font-weight: 600;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0 0 10px 0;
+}
+
+.chord-tones-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.tone-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #16162a;
+  padding: 10px 16px;
+  border-radius: 8px;
+  min-width: 50px;
+}
+
+.tone-note {
+  font-size: 18px;
+  font-weight: 600;
+  color: #e0e0e0;
+}
+
+.tone-degree {
+  font-size: 11px;
+  color: #666;
+}
+
+/* Tensions */
+.tensions-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tension-item {
+  background: #16162a;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  color: #ff6b6b;
+}
+
+/* Voicings section */
+.voicings-section {
+  margin-bottom: 20px;
+}
+
+.voicings-section h3 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #e0e0e0;
+  margin: 0 0 12px 0;
+}
+
+.voicing-group {
+  margin-bottom: 16px;
+}
+
+.voicing-group h4 {
+  font-size: 12px;
+  font-weight: 600;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0 0 8px 0;
+}
+
+.voicing-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.voicing-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  background: #1a1a2e;
+  border: 1px solid #2a2a4a;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.15s;
+  width: 100%;
+}
+
+.voicing-item:hover {
+  background: #252545;
+  border-color: #3a3a5a;
+}
+
+.voicing-item.active {
+  background: rgba(78, 205, 196, 0.1);
+  border-color: #4ecdc4;
+}
+
+.voicing-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #e0e0e0;
+}
+
+.voicing-item.active .voicing-name {
+  color: #4ecdc4;
+}
+
+.voicing-desc {
+  font-size: 12px;
+  color: #666;
+}
+
+.voicing-intervals {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 4px;
+  font-size: 12px;
+  font-family: monospace;
+}
+
+.lh-intervals {
+  color: #4ecdc4;
+}
+
+.rh-intervals {
+  color: #ff6b6b;
+}
+
+/* Voicing detail */
+.voicing-detail {
+  background: #1a1a2e;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.voicing-detail h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #4ecdc4;
+  margin: 0 0 16px 0;
+}
+
+.voicing-keyboard {
+  margin-bottom: 20px;
+}
+
+.notes-breakdown {
+  display: flex;
+  gap: 20px;
+}
+
+.hand-section {
+  flex: 1;
+}
+
+.hand-section h4 {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0 0 8px 0;
+}
+
+.hand-section.lh h4 {
+  color: #4ecdc4;
+}
+
+.hand-section.rh h4 {
+  color: #ff6b6b;
+}
+
+.hand-section .notes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.note-detail {
+  display: flex;
+  justify-content: space-between;
+  background: #16162a;
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+
+.hand-section.lh .note-detail {
+  border-left: 3px solid #4ecdc4;
+}
+
+.hand-section.rh .note-detail {
+  border-left: 3px solid #ff6b6b;
+}
+
+.note-name {
+  font-weight: 600;
+  color: #e0e0e0;
+}
+
+.note-interval {
+  color: #888;
+  font-size: 13px;
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  .reference-header {
+    padding: 20px 24px;
+  }
+
+  .reference-header h1 {
+    font-size: 24px;
+  }
+
+  .key-selector,
+  .chord-type-selector {
+    padding: 16px 24px;
+  }
+
+  .category-tabs {
+    padding: 0 24px;
+  }
+
+  .reference-main {
+    padding: 24px;
+  }
+
+  .chord-info {
+    padding: 24px;
+  }
+
+  .chord-info h2 {
+    font-size: 40px;
+  }
+}

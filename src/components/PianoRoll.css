@@ -1,0 +1,160 @@
+/* Piano roll styles */
+
+.piano-roll {
+  display: flex;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  background: #1a1a2e;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.piano-roll.empty {
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+  color: #666;
+}
+
+/* Piano key labels */
+.roll-keys {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-between;
+  width: 30px;
+  padding: 4px 2px;
+  background: #16162a;
+  font-size: 10px;
+  color: #666;
+}
+
+.octave-label {
+  text-align: right;
+  padding-right: 4px;
+}
+
+/* Grid container */
+.roll-grid {
+  display: flex;
+  flex: 1;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Individual chord column */
+.roll-column {
+  display: flex;
+  flex-direction: column;
+  min-width: 60px;
+  flex: 1;
+  max-width: 120px;
+  border-right: 1px solid #2a2a4a;
+  cursor: pointer;
+  scroll-snap-align: start;
+  transition: background 0.2s ease;
+}
+
+.roll-column:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.roll-column.active {
+  background: rgba(78, 205, 196, 0.1);
+}
+
+.roll-column:last-child {
+  border-right: none;
+}
+
+/* Column header with chord symbol */
+.column-header {
+  padding: 8px 4px;
+  text-align: center;
+  background: #16162a;
+  border-bottom: 1px solid #2a2a4a;
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chord-symbol {
+  font-size: 12px;
+  font-weight: 600;
+  color: #e0e0e0;
+  white-space: nowrap;
+}
+
+.roll-column.active .chord-symbol {
+  color: #4ecdc4;
+}
+
+/* Note display area */
+.column-notes {
+  position: relative;
+  flex: 1;
+  min-height: 120px;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.1) 0%,
+    transparent 50%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
+}
+
+@media (min-width: 768px) {
+  .column-notes {
+    min-height: 180px;
+  }
+}
+
+/* Grid lines */
+.grid-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #2a2a4a;
+  pointer-events: none;
+}
+
+/* Note markers */
+.roll-note {
+  position: absolute;
+  left: 15%;
+  right: 15%;
+  border-radius: 2px;
+  min-height: 4px;
+  transition: transform 0.1s ease;
+}
+
+.roll-note.lh {
+  background: #4ecdc4;
+  box-shadow: 0 0 4px rgba(78, 205, 196, 0.5);
+}
+
+.roll-note.rh {
+  background: #ff6b6b;
+  box-shadow: 0 0 4px rgba(255, 107, 107, 0.5);
+}
+
+.roll-column.active .roll-note {
+  transform: scaleX(1.1);
+}
+
+/* Column footer with bar number */
+.column-footer {
+  padding: 4px;
+  text-align: center;
+  font-size: 10px;
+  color: #666;
+  background: #16162a;
+  border-top: 1px solid #2a2a4a;
+}
+
+.roll-column.active .column-footer {
+  color: #4ecdc4;
+  font-weight: 600;
+}
