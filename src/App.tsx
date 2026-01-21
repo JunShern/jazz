@@ -1,13 +1,13 @@
 // Main App component with routing
 
-import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
+import { HashRouter, Routes, Route, NavLink } from 'react-router-dom';
 import { Practice } from './pages/Practice';
 import { ChordReference } from './pages/ChordReference';
 import './App.css';
 
 function App() {
   return (
-    <BrowserRouter basename="/jazz">
+    <HashRouter>
       <div className="app">
         {/* Bottom navigation */}
         <nav className="app-nav">
@@ -27,7 +27,7 @@ function App() {
           <Route path="/reference" element={<ChordReference />} />
         </Routes>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
