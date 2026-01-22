@@ -1,34 +1,37 @@
-// Main App component with routing
+import { useState } from 'react'
+import './App.css'
 
-import { HashRouter, Routes, Route, NavLink } from 'react-router-dom';
-import { Practice } from './pages/Practice';
-import { ChordReference } from './pages/ChordReference';
-import './App.css';
-
+// Minimal app to test deployment
 function App() {
-  return (
-    <HashRouter>
-      <div className="app">
-        {/* Bottom navigation */}
-        <nav className="app-nav">
-          <NavLink to="/" end className={({ isActive }) => isActive ? 'active' : ''}>
-            <span className="nav-icon">🎹</span>
-            <span className="nav-label">Practice</span>
-          </NavLink>
-          <NavLink to="/reference" className={({ isActive }) => isActive ? 'active' : ''}>
-            <span className="nav-icon">📖</span>
-            <span className="nav-label">Reference</span>
-          </NavLink>
-        </nav>
+  const [count, setCount] = useState(0)
 
-        {/* Routes */}
-        <Routes>
-          <Route path="/" element={<Practice />} />
-          <Route path="/reference" element={<ChordReference />} />
-        </Routes>
-      </div>
-    </HashRouter>
-  );
+  return (
+    <div style={{
+      padding: '40px',
+      background: '#1a1a2e',
+      minHeight: '100vh',
+      color: 'white',
+      fontFamily: 'system-ui, sans-serif'
+    }}>
+      <h1 style={{ color: '#4ecdc4' }}>Jazz Voicing Practice</h1>
+      <p>If you can see this, the app is working!</p>
+      <button
+        onClick={() => setCount(c => c + 1)}
+        style={{
+          background: '#4ecdc4',
+          color: '#1a1a2e',
+          border: 'none',
+          padding: '12px 24px',
+          borderRadius: '8px',
+          fontSize: '16px',
+          cursor: 'pointer',
+          marginTop: '20px'
+        }}
+      >
+        Clicked {count} times
+      </button>
+    </div>
+  )
 }
 
-export default App;
+export default App
