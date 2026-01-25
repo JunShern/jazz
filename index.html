@@ -1,38 +1,15 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jazz Voicing Practice</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: #1a1a2e;
-      color: #e0e0e0;
-      min-height: 100vh;
-      padding: 20px;
-    }
-    h1 { color: #4ecdc4; margin-bottom: 20px; }
-    button {
-      background: #4ecdc4;
-      color: #1a1a2e;
-      border: none;
-      padding: 15px 30px;
-      font-size: 18px;
-      border-radius: 8px;
-      cursor: pointer;
-      margin: 10px 0;
-    }
-    button:active { background: #3ab4ad; }
-    .counter { font-size: 24px; margin: 20px 0; }
-  </style>
-</head>
-<body>
-  <h1>Jazz Voicing Practice</h1>
-  <p>If you can see this, deployment works!</p>
-  <div class="counter">Count: <span id="count">0</span></div>
-  <button onclick="document.getElementById('count').textContent = ++window.c">Click me</button>
-  <script>window.c = 0;</script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./piano.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#1a1a2e" />
+    <meta name="description" content="Jazz Voicing Practice - A micro-practice app for jazz piano voicings" />
+    <title>Jazz Voicing Practice</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="./src/main.tsx"></script>
+  </body>
 </html>
