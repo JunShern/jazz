@@ -1,21 +1,23 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg: #0f0f1a;
-  --surface: #1a1a2e;
-  --border: #2a2a4a;
-  --text: #e0e0e0;
-  --text-muted: #888;
-  --primary: #4ecdc4;
-  --secondary: #ff6b6b;
+  --bg: #faf8f5;
+  --surface: #fff;
+  --border: #e8e0d5;
+  --text: #2c2416;
+  --text-muted: #8c7b6b;
+  --primary: #c45c26;
+  --primary-light: #f5ebe4;
+  --secondary: #8b4557;
+  --accent: #d4a574;
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: Georgia, 'Times New Roman', serif;
   background: var(--bg);
   color: var(--text);
   min-height: 100vh;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 /* Navigation */
@@ -41,23 +43,29 @@ body {
   border: none;
   color: var(--text-muted);
   cursor: pointer;
+  font-family: inherit;
 }
 
 .nav-btn.active { color: var(--primary); }
 .nav-btn span:first-child { font-size: 20px; }
-.nav-btn span:last-child { font-size: 11px; font-weight: 600; }
+.nav-btn span:last-child { font-size: 11px; font-weight: 600; letter-spacing: 0.5px; }
 
 /* Header */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 16px;
+  padding: 14px 16px;
   background: var(--surface);
   border-bottom: 1px solid var(--border);
 }
 
-.header h1 { font-size: 18px; color: var(--primary); }
+.header h1 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text);
+  font-style: italic;
+}
 
 .header-actions {
   display: flex;
@@ -70,25 +78,27 @@ body {
 /* Sequence Display at Top */
 .sequence-display {
   background: var(--surface);
-  border-radius: 10px;
-  padding: 12px 16px;
+  border-radius: 8px;
+  padding: 14px 16px;
   margin-bottom: 12px;
   text-align: center;
+  border: 1px solid var(--border);
 }
 
 .sequence-label {
-  font-size: 12px;
+  font-size: 11px;
   color: var(--text-muted);
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
   margin-bottom: 4px;
 }
 
 .sequence-chords {
-  font-size: 18px;
-  font-weight: 700;
+  font-size: 20px;
+  font-weight: 600;
   color: var(--primary);
   letter-spacing: 1px;
+  font-style: italic;
 }
 
 /* Chord Cards - All chords on screen */
@@ -100,27 +110,29 @@ body {
 
 .chord-card {
   background: var(--surface);
-  border-radius: 10px;
-  padding: 12px;
+  border-radius: 8px;
+  padding: 14px;
   border: 1px solid var(--border);
 }
 
 .chord-card.active {
   border-color: var(--primary);
-  box-shadow: 0 0 12px rgba(78, 205, 196, 0.2);
+  box-shadow: 0 2px 12px rgba(196, 92, 38, 0.15);
 }
 
 .chord-card-symbol {
-  font-size: 22px;
-  font-weight: 700;
+  font-size: 24px;
+  font-weight: 600;
   color: var(--text);
   margin-bottom: 2px;
+  font-style: italic;
 }
 
 .chord-card-voicing {
   font-size: 11px;
   color: var(--text-muted);
-  margin-bottom: 8px;
+  margin-bottom: 10px;
+  letter-spacing: 0.5px;
 }
 
 /* Compact Keyboard */
@@ -129,6 +141,7 @@ body {
   background: var(--bg);
   border-radius: 6px;
   overflow: hidden;
+  border: 1px solid var(--border);
 }
 
 .keyboard-keys {
@@ -151,9 +164,10 @@ body {
   transform: translateX(-50%);
   font-size: 10px;
   font-weight: 700;
-  padding: 2px 4px;
+  padding: 2px 5px;
   border-radius: 3px;
-  color: #000;
+  color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 .key-label.lh {
@@ -172,25 +186,25 @@ body {
   position: absolute;
   top: 0;
   height: 100%;
-  background: linear-gradient(to bottom, #f0f0f0, #d8d8d8);
-  border: 1px solid #999;
+  background: linear-gradient(to bottom, #fffef9, #f5f0e8);
+  border: 1px solid #c5b8a8;
   border-radius: 0 0 3px 3px;
 }
 
-.white-key.lh { background: linear-gradient(to bottom, var(--primary), #3ab4ad); }
-.white-key.rh { background: linear-gradient(to bottom, var(--secondary), #ee5a5a); }
+.white-key.lh { background: linear-gradient(to bottom, var(--primary), #a84d20); }
+.white-key.rh { background: linear-gradient(to bottom, var(--secondary), #6d3644); }
 
 .black-key {
   position: absolute;
   top: 0;
   height: 55%;
-  background: linear-gradient(to bottom, #333, #1a1a1a);
+  background: linear-gradient(to bottom, #3d3428, #1a1510);
   border-radius: 0 0 2px 2px;
   z-index: 1;
 }
 
-.black-key.lh { background: linear-gradient(to bottom, #3ab4ad, #2d8a84); }
-.black-key.rh { background: linear-gradient(to bottom, #ee5a5a, #cc4444); }
+.black-key.lh { background: linear-gradient(to bottom, #a84d20, #8a3f1a); }
+.black-key.rh { background: linear-gradient(to bottom, #6d3644, #552a36); }
 
 /* Legend Bar */
 .legend-bar {
@@ -220,32 +234,33 @@ body {
 
 /* Control buttons */
 .ctrl-btn {
-  background: var(--bg);
+  background: var(--surface);
   border: 1px solid var(--border);
   font-size: 16px;
   padding: 8px 12px;
-  border-radius: 8px;
+  border-radius: 6px;
   cursor: pointer;
 }
 
 .ctrl-btn:active {
-  background: var(--border);
+  background: var(--primary-light);
 }
 
 .ctrl-btn.active {
   background: var(--primary);
   border-color: var(--primary);
+  color: #fff;
 }
 
 /* Settings Panel */
 .settings-panel {
   background: var(--surface);
-  padding: 10px 12px;
+  padding: 12px 14px;
   border-bottom: 1px solid var(--border);
 }
 
 .settings-section {
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .settings-section:last-child {
@@ -256,8 +271,8 @@ body {
   font-size: 10px;
   color: var(--text-muted);
   text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 6px;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
 }
 
 .settings-chips {
@@ -270,30 +285,35 @@ body {
   background: var(--bg);
   border: 1px solid var(--border);
   color: var(--text-muted);
-  padding: 6px 10px;
-  border-radius: 16px;
-  font-size: 12px;
-  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-family: inherit;
   cursor: pointer;
   white-space: nowrap;
+  transition: all 0.15s ease;
+}
+
+.chip:hover {
+  border-color: var(--accent);
 }
 
 .chip.active {
   background: var(--primary);
-  color: var(--bg);
+  color: #fff;
   border-color: var(--primary);
 }
 
 .chip:active {
-  opacity: 0.8;
+  opacity: 0.85;
 }
 
 .chip-prog {
-  padding: 6px 12px;
+  padding: 6px 14px;
 }
 
 .chip-style {
-  padding: 6px 12px;
+  padding: 6px 14px;
 }
 
 /* Reference page */
@@ -312,11 +332,12 @@ body {
   border-radius: 6px;
   cursor: pointer;
   font-weight: 600;
+  font-family: inherit;
 }
 
 .key-btn.active {
   background: var(--primary);
-  color: var(--bg);
+  color: #fff;
   border-color: var(--primary);
 }
 
@@ -335,17 +356,18 @@ body {
   border-radius: 8px;
   cursor: pointer;
   text-align: center;
+  font-family: inherit;
 }
 
 .chord-btn.active {
   background: var(--primary);
-  color: var(--bg);
+  color: #fff;
   border-color: var(--primary);
 }
 
-.chord-btn-symbol { font-size: 14px; font-weight: 600; }
+.chord-btn-symbol { font-size: 15px; font-weight: 600; font-style: italic; }
 .chord-btn-name { font-size: 9px; color: var(--text-muted); margin-top: 2px; }
-.chord-btn.active .chord-btn-name { color: var(--bg); opacity: 0.7; }
+.chord-btn.active .chord-btn-name { color: #fff; opacity: 0.85; }
 
 .voicing-list {
   display: flex;
@@ -361,32 +383,34 @@ body {
   cursor: pointer;
   text-align: left;
   width: 100%;
+  font-family: inherit;
 }
 
 .voicing-btn.active {
   border-color: var(--primary);
-  background: rgba(78, 205, 196, 0.1);
+  background: var(--primary-light);
 }
 
 .voicing-btn-name { font-weight: 600; }
 .voicing-btn.active .voicing-btn-name { color: var(--primary); }
-.voicing-btn-intervals { font-size: 12px; color: var(--text-muted); margin-top: 4px; font-family: monospace; }
+.voicing-btn-intervals { font-size: 12px; color: var(--text-muted); margin-top: 4px; font-family: 'SF Mono', Monaco, monospace; }
 .voicing-btn-intervals .lh { color: var(--primary); }
 .voicing-btn-intervals .rh { color: var(--secondary); }
 
 /* Chord Tones Display */
 .chord-tones {
   background: var(--surface);
-  border-radius: 10px;
+  border-radius: 8px;
   padding: 14px;
   margin-bottom: 16px;
+  border: 1px solid var(--border);
 }
 
 .chord-tones-header {
   font-size: 12px;
   color: var(--text-muted);
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
   margin-bottom: 10px;
 }
 
@@ -399,19 +423,22 @@ body {
 .chord-tone {
   background: var(--bg);
   border-radius: 8px;
-  padding: 8px 12px;
+  padding: 10px 14px;
   text-align: center;
   min-width: 50px;
+  border: 1px solid var(--border);
 }
 
 .chord-tone-note {
-  font-size: 18px;
-  font-weight: 700;
+  font-size: 20px;
+  font-weight: 600;
   color: var(--text);
+  font-style: italic;
 }
 
 .chord-tone-interval {
   font-size: 11px;
   color: var(--primary);
   margin-top: 2px;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
