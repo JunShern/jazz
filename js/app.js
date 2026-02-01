@@ -125,7 +125,6 @@ function PracticePage() {
   const [key, setKey] = useState(() => localStorage.getItem('jazz-key') || 'C');
   const [progId, setProgId] = useState(() => localStorage.getItem('jazz-prog') || 'ii-V-I');
   const [voicingStyle, setVoicingStyle] = useState(() => localStorage.getItem('jazz-style') || 'shell');
-  const [showSettings, setShowSettings] = useState(false);
 
   // Persist settings
   useEffect(() => { localStorage.setItem('jazz-key', key); }, [key]);
@@ -156,44 +155,41 @@ function PracticePage() {
 
   return html`
     <div class="header">
-      <h1>${progression.name}</h1>
-      <div class="header-actions">
-        <button class="ctrl-btn" onClick=${randomize} title="Random">🎲</button>
-        <button class="ctrl-btn ${showSettings ? 'active' : ''}" onClick=${() => setShowSettings(!showSettings)}>⚙️</button>
+      <h1>Practice</h1>
+      <button class="ctrl-btn" onClick=${randomize} title="Random">🎲</button>
+    </div>
+
+    <div class="settings-panel">
+      <div class="settings-section">
+        <div class="settings-section-label">Key</div>
+        <div class="settings-chips">
+          ${NOTE_NAMES.map(n => html`
+            <button class="chip ${n === key ? 'active' : ''}" onClick=${() => setKey(n)}>${n}</button>
+          `)}
+        </div>
+      </div>
+
+      <div class="settings-section">
+        <div class="settings-section-label">Progression</div>
+        <div class="settings-chips">
+          ${PROGRESSIONS.map(p => html`
+            <button class="chip chip-prog ${p.id === progId ? 'active' : ''}" onClick=${() => setProgId(p.id)}>${p.name}</button>
+          `)}
+        </div>
+      </div>
+
+      <div class="settings-section">
+        <div class="settings-section-label">Voicing</div>
+        <div class="settings-chips">
+          ${Object.entries(VOICING_STYLES).map(([id, s]) => html`
+            <button class="chip chip-style ${id === voicingStyle ? 'active' : ''}" onClick=${() => setVoicingStyle(id)}>${s.name}</button>
+          `)}
+        </div>
       </div>
     </div>
 
-    ${showSettings && html`
-      <div class="settings">
-        <div class="settings-grid-3">
-          <div class="setting-group">
-            <label>Key</label>
-            <select value=${key} onChange=${e => setKey(e.target.value)}>
-              ${NOTE_NAMES.map(n => html`<option value=${n}>${n}</option>`)}
-            </select>
-          </div>
-          <div class="setting-group">
-            <label>Progression</label>
-            <select value=${progId} onChange=${e => setProgId(e.target.value)}>
-              ${PROGRESSIONS.map(p => html`<option value=${p.id}>${p.name}</option>`)}
-            </select>
-          </div>
-          <div class="setting-group">
-            <label>Voicing Style</label>
-            <select value=${voicingStyle} onChange=${e => setVoicingStyle(e.target.value)}>
-              ${Object.entries(VOICING_STYLES).map(([id, s]) => html`
-                <option value=${id}>${s.name}</option>
-              `)}
-            </select>
-          </div>
-        </div>
-        <div class="style-description">${VOICING_STYLES[voicingStyle]?.description}</div>
-      </div>
-    `}
-
     <div class="page">
       <div class="sequence-display">
-        <div class="sequence-label">Key of ${key}</div>
         <div class="sequence-chords">${chordSequence}</div>
       </div>
 
@@ -222,8 +218,22 @@ function ReferencePage() {
 
   const voicings = VOICINGS[chordType] || [];
   const voicing = realizeVoicing(key, chordType, voicingIdx);
+  const chordInfo = CHORD_TYPES[chordType];
 
   const getDegree = interval => DEGREE_NAMES[interval % 12] || interval;
+
+  // Get full chord tones (notes + intervals)
+  const chordTones = useMemo(() => {
+    if (!chordInfo) return [];
+    const rootIdx = NOTE_NAMES.indexOf(key);
+    return chordInfo.intervals.map(interval => {
+      const noteIdx = (rootIdx + interval) % 12;
+      return {
+        note: NOTE_NAMES[noteIdx],
+        interval: getDegree(interval)
+      };
+    });
+  }, [key, chordType, chordInfo]);
 
   return html`
     <div class="header">
@@ -245,6 +255,18 @@ function ReferencePage() {
             <div class="chord-btn-name">${CHORD_TYPES[type].name}</div>
           </button>
         `)}
+      </div>
+
+      <div class="chord-tones">
+        <div class="chord-tones-header">${formatChord(key, chordType)} - Full Chord Tones</div>
+        <div class="chord-tones-grid">
+          ${chordTones.map(t => html`
+            <div class="chord-tone">
+              <div class="chord-tone-note">${t.note}</div>
+              <div class="chord-tone-interval">${t.interval}</div>
+            </div>
+          `)}
+        </div>
       </div>
 
       <h3 style="margin-bottom: 12px">Voicings</h3>

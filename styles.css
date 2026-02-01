@@ -153,18 +153,19 @@ body {
   font-weight: 700;
   padding: 2px 4px;
   border-radius: 3px;
+  color: #000;
 }
 
 .key-label.lh {
-  color: var(--primary);
+  background: var(--primary);
 }
 
 .key-label.rh {
-  color: var(--secondary);
+  background: var(--secondary);
 }
 
 .key-label.black {
-  top: 32px;
+  top: 28px;
 }
 
 .white-key {
@@ -236,52 +237,63 @@ body {
   border-color: var(--primary);
 }
 
-/* Settings */
-.settings {
+/* Settings Panel */
+.settings-panel {
   background: var(--surface);
-  padding: 12px 16px;
+  padding: 10px 12px;
   border-bottom: 1px solid var(--border);
 }
 
-.settings-grid-3 {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 10px;
+.settings-section {
+  margin-bottom: 10px;
 }
 
-@media (max-width: 480px) {
-  .settings-grid-3 {
-    grid-template-columns: 1fr 1fr;
-  }
-  .settings-grid-3 .setting-group:last-child {
-    grid-column: span 2;
-  }
+.settings-section:last-child {
+  margin-bottom: 0;
 }
 
-.setting-group label {
-  display: block;
+.settings-section-label {
   font-size: 10px;
   color: var(--text-muted);
   text-transform: uppercase;
-  margin-bottom: 4px;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
 }
 
-.setting-group select {
-  width: 100%;
+.settings-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.chip {
   background: var(--bg);
-  color: var(--text);
   border: 1px solid var(--border);
-  padding: 8px;
-  border-radius: 6px;
-  font-size: 13px;
+  color: var(--text-muted);
+  padding: 6px 10px;
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
 }
 
-.style-description {
-  font-size: 11px;
-  color: var(--text-muted);
-  margin-top: 8px;
-  text-align: center;
-  font-style: italic;
+.chip.active {
+  background: var(--primary);
+  color: var(--bg);
+  border-color: var(--primary);
+}
+
+.chip:active {
+  opacity: 0.8;
+}
+
+.chip-prog {
+  padding: 6px 12px;
+}
+
+.chip-style {
+  padding: 6px 12px;
 }
 
 /* Reference page */
@@ -361,3 +373,45 @@ body {
 .voicing-btn-intervals { font-size: 12px; color: var(--text-muted); margin-top: 4px; font-family: monospace; }
 .voicing-btn-intervals .lh { color: var(--primary); }
 .voicing-btn-intervals .rh { color: var(--secondary); }
+
+/* Chord Tones Display */
+.chord-tones {
+  background: var(--surface);
+  border-radius: 10px;
+  padding: 14px;
+  margin-bottom: 16px;
+}
+
+.chord-tones-header {
+  font-size: 12px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+}
+
+.chord-tones-grid {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.chord-tone {
+  background: var(--bg);
+  border-radius: 8px;
+  padding: 8px 12px;
+  text-align: center;
+  min-width: 50px;
+}
+
+.chord-tone-note {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.chord-tone-interval {
+  font-size: 11px;
+  color: var(--primary);
+  margin-top: 2px;
+}
