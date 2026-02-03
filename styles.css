@@ -2,22 +2,26 @@
 
 :root {
   --bg: #faf8f5;
-  --surface: #fff;
-  --border: #e8e0d5;
-  --text: #2c2416;
-  --text-muted: #8c7b6b;
-  --primary: #c45c26;
-  --primary-light: #f5ebe4;
-  --secondary: #8b4557;
+  --surface: #ffffff;
+  --border: #e5ded4;
+  --text: #2c2820;
+  --text-muted: #7d7368;
+  --primary: #b8562b;
+  --primary-light: #f7efe9;
+  --secondary: #7a4252;
   --accent: #d4a574;
+
+  --font-display: 'Libre Baskerville', Georgia, serif;
+  --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 body {
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: var(--font-ui);
   background: var(--bg);
   color: var(--text);
   min-height: 100vh;
-  line-height: 1.6;
+  line-height: 1.5;
+  font-size: 14px;
 }
 
 /* Navigation */
@@ -43,33 +47,28 @@ body {
   border: none;
   color: var(--text-muted);
   cursor: pointer;
-  font-family: inherit;
+  font-family: var(--font-ui);
 }
 
 .nav-btn.active { color: var(--primary); }
 .nav-btn span:first-child { font-size: 20px; }
-.nav-btn span:last-child { font-size: 11px; font-weight: 600; letter-spacing: 0.5px; }
+.nav-btn span:last-child { font-size: 11px; font-weight: 500; letter-spacing: 0.3px; }
 
 /* Header */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 14px 16px;
+  padding: 16px;
   background: var(--surface);
   border-bottom: 1px solid var(--border);
 }
 
 .header h1 {
-  font-size: 20px;
-  font-weight: 600;
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
   color: var(--text);
-  font-style: italic;
-}
-
-.header-actions {
-  display: flex;
-  gap: 8px;
 }
 
 /* Page container */
@@ -79,29 +78,21 @@ body {
 .sequence-display {
   background: var(--surface);
   border-radius: 8px;
-  padding: 14px 16px;
+  padding: 16px;
   margin-bottom: 12px;
   text-align: center;
   border: 1px solid var(--border);
 }
 
-.sequence-label {
-  font-size: 11px;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 4px;
-}
-
 .sequence-chords {
+  font-family: var(--font-display);
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--primary);
-  letter-spacing: 1px;
-  font-style: italic;
+  letter-spacing: 0.5px;
 }
 
-/* Chord Cards - All chords on screen */
+/* Chord Cards */
 .chord-cards {
   display: flex;
   flex-direction: column;
@@ -117,22 +108,21 @@ body {
 
 .chord-card.active {
   border-color: var(--primary);
-  box-shadow: 0 2px 12px rgba(196, 92, 38, 0.15);
+  box-shadow: 0 2px 12px rgba(184, 86, 43, 0.12);
 }
 
 .chord-card-symbol {
-  font-size: 24px;
-  font-weight: 600;
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 700;
   color: var(--text);
-  margin-bottom: 2px;
-  font-style: italic;
+  margin-bottom: 4px;
 }
 
 .chord-card-voicing {
-  font-size: 11px;
+  font-size: 12px;
   color: var(--text-muted);
   margin-bottom: 10px;
-  letter-spacing: 0.5px;
 }
 
 /* Compact Keyboard */
@@ -163,11 +153,11 @@ body {
   top: 52px;
   transform: translateX(-50%);
   font-size: 10px;
-  font-weight: 700;
+  font-weight: 600;
   padding: 2px 5px;
   border-radius: 3px;
   color: #fff;
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: var(--font-ui);
 }
 
 .key-label.lh {
@@ -186,25 +176,25 @@ body {
   position: absolute;
   top: 0;
   height: 100%;
-  background: linear-gradient(to bottom, #fffef9, #f5f0e8);
-  border: 1px solid #c5b8a8;
+  background: linear-gradient(to bottom, #fffefa, #f5f1ea);
+  border: 1px solid #c8bfb0;
   border-radius: 0 0 3px 3px;
 }
 
-.white-key.lh { background: linear-gradient(to bottom, var(--primary), #a84d20); }
-.white-key.rh { background: linear-gradient(to bottom, var(--secondary), #6d3644); }
+.white-key.lh { background: linear-gradient(to bottom, var(--primary), #9a4a24); }
+.white-key.rh { background: linear-gradient(to bottom, var(--secondary), #5f3340); }
 
 .black-key {
   position: absolute;
   top: 0;
   height: 55%;
-  background: linear-gradient(to bottom, #3d3428, #1a1510);
+  background: linear-gradient(to bottom, #3a342c, #1c1814);
   border-radius: 0 0 2px 2px;
   z-index: 1;
 }
 
-.black-key.lh { background: linear-gradient(to bottom, #a84d20, #8a3f1a); }
-.black-key.rh { background: linear-gradient(to bottom, #6d3644, #552a36); }
+.black-key.lh { background: linear-gradient(to bottom, #9a4a24, #7d3c1d); }
+.black-key.rh { background: linear-gradient(to bottom, #5f3340, #4a2832); }
 
 /* Legend Bar */
 .legend-bar {
@@ -246,21 +236,15 @@ body {
   background: var(--primary-light);
 }
 
-.ctrl-btn.active {
-  background: var(--primary);
-  border-color: var(--primary);
-  color: #fff;
-}
-
 /* Settings Panel */
 .settings-panel {
   background: var(--surface);
-  padding: 12px 14px;
+  padding: 14px 16px;
   border-bottom: 1px solid var(--border);
 }
 
 .settings-section {
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
 .settings-section:last-child {
@@ -268,10 +252,11 @@ body {
 }
 
 .settings-section-label {
-  font-size: 10px;
+  font-size: 11px;
+  font-weight: 500;
   color: var(--text-muted);
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.8px;
   margin-bottom: 8px;
 }
 
@@ -285,10 +270,11 @@ body {
   background: var(--bg);
   border: 1px solid var(--border);
   color: var(--text-muted);
-  padding: 6px 12px;
-  border-radius: 20px;
+  padding: 7px 12px;
+  border-radius: 6px;
   font-size: 13px;
-  font-family: inherit;
+  font-weight: 500;
+  font-family: var(--font-ui);
   cursor: pointer;
   white-space: nowrap;
   transition: all 0.15s ease;
@@ -296,6 +282,7 @@ body {
 
 .chip:hover {
   border-color: var(--accent);
+  color: var(--text);
 }
 
 .chip.active {
@@ -309,11 +296,11 @@ body {
 }
 
 .chip-prog {
-  padding: 6px 14px;
+  padding: 7px 14px;
 }
 
 .chip-style {
-  padding: 6px 14px;
+  padding: 7px 14px;
 }
 
 /* Reference page */
@@ -331,8 +318,8 @@ body {
   padding: 8px 12px;
   border-radius: 6px;
   cursor: pointer;
-  font-weight: 600;
-  font-family: inherit;
+  font-weight: 500;
+  font-family: var(--font-ui);
 }
 
 .key-btn.active {
@@ -356,7 +343,7 @@ body {
   border-radius: 8px;
   cursor: pointer;
   text-align: center;
-  font-family: inherit;
+  font-family: var(--font-ui);
 }
 
 .chord-btn.active {
@@ -365,9 +352,22 @@ body {
   border-color: var(--primary);
 }
 
-.chord-btn-symbol { font-size: 15px; font-weight: 600; font-style: italic; }
-.chord-btn-name { font-size: 9px; color: var(--text-muted); margin-top: 2px; }
-.chord-btn.active .chord-btn-name { color: #fff; opacity: 0.85; }
+.chord-btn-symbol {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.chord-btn-name {
+  font-size: 9px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.chord-btn.active .chord-btn-name {
+  color: #fff;
+  opacity: 0.85;
+}
 
 .voicing-list {
   display: flex;
@@ -383,7 +383,7 @@ body {
   cursor: pointer;
   text-align: left;
   width: 100%;
-  font-family: inherit;
+  font-family: var(--font-ui);
 }
 
 .voicing-btn.active {
@@ -391,9 +391,21 @@ body {
   background: var(--primary-light);
 }
 
-.voicing-btn-name { font-weight: 600; }
-.voicing-btn.active .voicing-btn-name { color: var(--primary); }
-.voicing-btn-intervals { font-size: 12px; color: var(--text-muted); margin-top: 4px; font-family: 'SF Mono', Monaco, monospace; }
+.voicing-btn-name {
+  font-weight: 600;
+}
+
+.voicing-btn.active .voicing-btn-name {
+  color: var(--primary);
+}
+
+.voicing-btn-intervals {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 4px;
+  font-family: 'SF Mono', Monaco, Consolas, monospace;
+}
+
 .voicing-btn-intervals .lh { color: var(--primary); }
 .voicing-btn-intervals .rh { color: var(--secondary); }
 
@@ -407,11 +419,11 @@ body {
 }
 
 .chord-tones-header {
-  font-size: 12px;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 10px;
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 12px;
 }
 
 .chord-tones-grid {
@@ -430,15 +442,15 @@ body {
 }
 
 .chord-tone-note {
+  font-family: var(--font-display);
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--text);
-  font-style: italic;
 }
 
 .chord-tone-interval {
   font-size: 11px;
+  font-weight: 500;
   color: var(--primary);
   margin-top: 2px;
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
