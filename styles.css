@@ -262,22 +262,31 @@ body {
 
 .settings-chips {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 6px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.settings-chips::-webkit-scrollbar {
+  display: none;
 }
 
 .chip {
   background: var(--bg);
   border: 1px solid var(--border);
   color: var(--text-muted);
-  padding: 7px 12px;
+  padding: 6px 10px;
   border-radius: 6px;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 500;
   font-family: var(--font-ui);
   cursor: pointer;
   white-space: nowrap;
   transition: all 0.15s ease;
+  flex-shrink: 0;
 }
 
 .chip:hover {

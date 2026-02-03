@@ -6,9 +6,9 @@ const html = htm.bind(h);
 // ============ VOICING STYLES ============
 
 const VOICING_STYLES = {
-  shell: { name: 'Shell (Comping)', description: 'Sparse 2-note voicings for accompanying' },
+  shell: { name: 'Shell', description: 'Sparse 2-note voicings for accompanying' },
   rootless: { name: 'Rootless', description: 'Classic rootless voicings (bass covers root)' },
-  full: { name: 'Solo Piano', description: 'Full voicings with root for solo playing' }
+  full: { name: 'Full', description: 'Full chord voicings with root' }
 };
 
 // Map chord types to voicing index for each style
@@ -39,7 +39,7 @@ function CompactKeyboard({ lhNotes, rhNotes, lhIntervals, rhIntervals, chordRoot
 
   const keys = [];
   const labels = [];
-  const startOctave = 2, endOctave = 5;
+  const startOctave = 2, endOctave = 6;
   const totalWhiteKeys = (endOctave - startOctave + 1) * 7;
   const keyWidth = 100 / totalWhiteKeys;
 
@@ -204,8 +204,8 @@ function PracticePage() {
       </div>
 
       <div class="legend-bar">
-        <span class="legend-item legend-lh">LH (teal)</span>
-        <span class="legend-item legend-rh">RH (red)</span>
+        <span class="legend-item legend-lh">Left Hand</span>
+        <span class="legend-item legend-rh">Right Hand</span>
       </div>
     </div>
   `;

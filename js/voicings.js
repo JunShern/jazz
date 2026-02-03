@@ -61,7 +61,7 @@ function realizeVoicing(root, chordType, voicingIdx) {
   const rhNotes = voicing.rh.map(interval => {
     let midi = rootMidi + 12 + interval; // One octave up
     while (midi < 55) midi += 12; // G3 minimum
-    while (midi > 84) midi -= 12; // C6 maximum
+    while (midi > 95) midi -= 12; // B6 maximum
     return midiToNote(midi);
   });
 
