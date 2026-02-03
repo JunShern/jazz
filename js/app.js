@@ -6,9 +6,10 @@ const html = htm.bind(h);
 // ============ VOICING STYLES ============
 
 const VOICING_STYLES = {
-  shell: { name: 'Shell', description: 'Sparse 2-note voicings for accompanying' },
-  rootless: { name: 'Rootless', description: 'Classic rootless voicings (bass covers root)' },
-  full: { name: 'Full', description: 'Full chord voicings with root' }
+  shell: { name: 'Shell' },
+  rootless: { name: 'Rootless' },
+  solo: { name: 'Solo Piano' },
+  full: { name: 'Full' }
 };
 
 // Map chord types to voicing index for each style
@@ -17,13 +18,14 @@ function getVoicingForStyle(chordType, style) {
   if (!voicings) return 0;
 
   const styleMap = {
-    shell: ['Shell', 'shell'],
-    rootless: ['Rootless', 'rootless', 'Quartal'],
-    full: ['Full', 'full']
+    shell: ['Shell'],
+    rootless: ['Rootless'],
+    solo: ['Solo Piano'],
+    full: ['Full']
   };
 
   const keywords = styleMap[style] || styleMap.shell;
-  const idx = voicings.findIndex(v => keywords.some(k => v.name.toLowerCase().includes(k.toLowerCase())));
+  const idx = voicings.findIndex(v => keywords.some(k => v.name.includes(k)));
   return idx >= 0 ? idx : 0;
 }
 
@@ -156,7 +158,6 @@ function PracticePage() {
   return html`
     <div class="header">
       <h1>Practice</h1>
-      <button class="ctrl-btn" onClick=${randomize} title="Random">🎲</button>
     </div>
 
     <div class="settings-panel">
@@ -186,6 +187,8 @@ function PracticePage() {
           `)}
         </div>
       </div>
+
+      <button class="randomize-btn" onClick=${randomize}>🎲 Random</button>
     </div>
 
     <div class="page">

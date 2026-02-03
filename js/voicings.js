@@ -3,45 +3,62 @@ const VOICINGS = {
   'maj7': [
     { name: 'Shell (3-7)', lh: [4, 11], rh: [2, 7] },
     { name: 'Rootless A', lh: [4, 7, 11, 14], rh: [] },
-    { name: 'Full', lh: [0, 7], rh: [4, 11, 14] }
+    { name: 'Solo Piano', lh: [0, 7], rh: [4, 11, 14] },
+    { name: 'Full', lh: [0, 4, 7, 11], rh: [0, 4, 7, 11] }
   ],
   '6': [
     { name: 'Shell (3-6)', lh: [4, 9], rh: [2, 7] },
-    { name: 'Full', lh: [0, 7], rh: [4, 9, 14] }
+    { name: 'Rootless A', lh: [4, 7, 9, 14], rh: [] },
+    { name: 'Solo Piano', lh: [0, 7], rh: [4, 9, 14] },
+    { name: 'Full', lh: [0, 4, 7, 9], rh: [0, 4, 7, 9] }
   ],
   'm7': [
     { name: 'Shell (b3-b7)', lh: [3, 10], rh: [2, 7] },
     { name: 'Rootless A', lh: [3, 7, 10, 14], rh: [] },
-    { name: 'Full', lh: [0, 7], rh: [3, 10, 14] }
+    { name: 'Solo Piano', lh: [0, 7], rh: [3, 10, 14] },
+    { name: 'Full', lh: [0, 3, 7, 10], rh: [0, 3, 7, 10] }
   ],
   'm6': [
     { name: 'Shell (b3-6)', lh: [3, 9], rh: [2, 7] },
-    { name: 'Full', lh: [0, 7], rh: [3, 9, 14] }
+    { name: 'Rootless A', lh: [3, 7, 9, 14], rh: [] },
+    { name: 'Solo Piano', lh: [0, 7], rh: [3, 9, 14] },
+    { name: 'Full', lh: [0, 3, 7, 9], rh: [0, 3, 7, 9] }
   ],
   '7': [
     { name: 'Shell (3-b7)', lh: [4, 10], rh: [2, 9] },
     { name: 'Rootless A', lh: [4, 9, 10, 14], rh: [] },
-    { name: 'Full', lh: [0, 7], rh: [4, 10, 14] }
+    { name: 'Solo Piano', lh: [0, 7], rh: [4, 10, 14] },
+    { name: 'Full', lh: [0, 4, 7, 10], rh: [0, 4, 7, 10] }
   ],
   '7b9': [
-    { name: 'Shell (3-b7-b9)', lh: [4, 10], rh: [1, 8] },
-    { name: 'Full', lh: [0], rh: [4, 10, 13, 20] }
+    { name: 'Shell (3-b7)', lh: [4, 10], rh: [1, 8] },
+    { name: 'Rootless A', lh: [4, 7, 10, 13], rh: [] },
+    { name: 'Solo Piano', lh: [0], rh: [4, 10, 13] },
+    { name: 'Full', lh: [0, 4, 7, 10], rh: [0, 4, 7, 10] }
   ],
   '7alt': [
     { name: 'Shell (3-b7)', lh: [4, 10], rh: [1, 8] },
-    { name: 'Full', lh: [0], rh: [4, 8, 10, 13] }
+    { name: 'Rootless A', lh: [4, 8, 10, 13], rh: [] },
+    { name: 'Solo Piano', lh: [0], rh: [4, 8, 10, 13] },
+    { name: 'Full', lh: [0, 4, 8, 10], rh: [0, 4, 8, 10] }
   ],
   'm7b5': [
     { name: 'Shell (b3-b7)', lh: [3, 10], rh: [6, 14] },
-    { name: 'Full', lh: [0, 6], rh: [3, 10, 14] }
+    { name: 'Rootless A', lh: [3, 6, 10, 14], rh: [] },
+    { name: 'Solo Piano', lh: [0, 6], rh: [3, 10, 14] },
+    { name: 'Full', lh: [0, 3, 6, 10], rh: [0, 3, 6, 10] }
   ],
   'dim7': [
-    { name: 'Shell', lh: [3, 9], rh: [6, 0] },
-    { name: 'Full', lh: [0, 6], rh: [3, 9] }
+    { name: 'Shell', lh: [3, 9], rh: [6, 12] },
+    { name: 'Rootless A', lh: [3, 6, 9, 12], rh: [] },
+    { name: 'Solo Piano', lh: [0, 6], rh: [3, 9] },
+    { name: 'Full', lh: [0, 3, 6, 9], rh: [0, 3, 6, 9] }
   ],
   '7sus': [
     { name: 'Shell (4-b7)', lh: [5, 10], rh: [2, 7] },
-    { name: 'Quartal', lh: [10, 14, 19], rh: [5, 12] }
+    { name: 'Rootless A', lh: [5, 7, 10, 14], rh: [] },
+    { name: 'Solo Piano', lh: [0, 7], rh: [5, 10, 14] },
+    { name: 'Full', lh: [0, 5, 7, 10], rh: [0, 5, 7, 10] }
   ]
 };
 
